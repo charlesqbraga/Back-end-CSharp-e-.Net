@@ -5,8 +5,6 @@ Dictionary<string, List<int>> bandasRegistradas = new Dictionary<string, List<in
 
 bandasRegistradas.Add("Linkin Park", new List<int> { 10, 8, 6});
 bandasRegistradas.Add("The Beatles", new List<int>());
-
-
 void ExibirLogo()
 {
     Console.WriteLine(@"
@@ -57,8 +55,6 @@ void ExibirOperacoesDoMenu()
             break;
     }
 }
-
-
 void RegistrarBanda()
 {
     Console.Clear(); //Comando para Limpar o Console.
@@ -77,7 +73,6 @@ void MostrarBandasRegistradas()
     ExibirTituloDaOpcao("Exibindo todas as bandas registradas."); // o simbulo de \n serve para pular uma linha
     /*for (int i = 0; i < listaDasBandas.Count; i++)
         Console.WriteLine($"Banda: {listaDasBandas[i]}");*/
-
     foreach (string banda in bandasRegistradas.Keys)
     {
         Console.WriteLine($"Banda: {banda}");
