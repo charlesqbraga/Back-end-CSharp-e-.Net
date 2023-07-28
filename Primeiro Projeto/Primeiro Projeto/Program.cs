@@ -45,7 +45,7 @@ void ExibirOperacoesDoMenu()
             AvaliarUmaBanda();     
                 break;
         case 4:
-            Console.WriteLine("Você escolheu a opção " + opcãoEscolhidaNumerica);
+            ExibirMediaDasBandas();
             break;
         case -1:
             Console.WriteLine("Volte sempre :) ");
@@ -123,6 +123,33 @@ void AvaliarUmaBanda()
         ExibirOperacoesDoMenu();
     }
 
+}
+
+void ExibirMediaDasBandas()
+{
+    Console.Clear();
+    ExibirTituloDaOpcao("Exibir média da banda");
+    Console.WriteLine("Digite o nome da banda que você deseja exibir a média");
+    string nomeDaBanda = Console.ReadLine()!;
+    if (bandasRegistradas.ContainsKey(nomeDaBanda))
+    {
+        Console.Clear();
+        ExibirTituloDaOpcao($"{nomeDaBanda}");
+        List<int> notasDaBanda = bandasRegistradas[nomeDaBanda];
+        Console.WriteLine($"\nA média atribuida à banda {nomeDaBanda} é {notasDaBanda.Average()}.");
+        Console.WriteLine("Digite uma tecla para voltar ao menu principal");
+        Console.ReadKey();
+        Console.Clear();
+        ExibirOperacoesDoMenu();
+
+    } else
+    {
+        Console.WriteLine($"\nA banda {nomeDaBanda} não foi encontrada!");
+        Console.WriteLine("Digite uma tecla para voltar ao menu principal");
+        Console.ReadKey();
+        Console.Clear();
+        ExibirOperacoesDoMenu();
+    }
 }
 
 //Essa parte chama os void's.
