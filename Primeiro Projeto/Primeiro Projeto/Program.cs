@@ -56,9 +56,7 @@ void ExibirOperacoesDoMenu()
 void RegistrarBanda()
 {
     Console.Clear(); //Comando para Limpar o Console.
-    Console.WriteLine("******************");
-    Console.WriteLine("Registro de Bandas");
-    Console.WriteLine("******************\n");
+    ExibirTituloDaOpcao("Registro das bandas");
     Console.Write("Digite o nome da banda que deseja registrar: ");
     string nomeDaBanda = Console.ReadLine()!; //Sinal de ! no final para mostrar que não queremos trabalhar com valor nulo.
     listaDasBandas.Add(nomeDaBanda);
@@ -70,10 +68,7 @@ void RegistrarBanda()
 
 void MostrarBandasRegistradas()
 {
-    Console.Clear(); //Comando para Limpar o Console.
-    Console.WriteLine("************************************");
-    Console.WriteLine("Exibindo todas as bandas registradas");
-    Console.WriteLine("************************************\n"); // o simbulo de \n serve para pular uma linha
+    ExibirTituloDaOpcao("Exibindo todas as bandas registradas"); // o simbulo de \n serve para pular uma linha
     /*for (int i = 0; i < listaDasBandas.Count; i++)
         Console.WriteLine($"Banda: {listaDasBandas[i]}");*/
 
@@ -87,6 +82,16 @@ void MostrarBandasRegistradas()
     ExibirOperacoesDoMenu();
 }
 
+
+void ExibirTituloDaOpcao(string titulo)
+{
+    int quantidadeDeLetras = titulo.Length;
+    string asteriscos = string.Empty.PadLeft(quantidadeDeLetras, '*');
+    Console.WriteLine(asteriscos);
+    Console.WriteLine(titulo);
+    Console.WriteLine(asteriscos + "\n");
+        
+}
 
 //Essa parte chama os void's.
 ExibirLogo();
