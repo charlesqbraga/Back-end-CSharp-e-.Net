@@ -1,6 +1,12 @@
 ﻿// Screen Sound
 string mensagemDeBoasVindas = "Boas vindas ao Screen Sound";
-List<string> listaDasBandas = new List<string>(); //criamos uma lista vazia 
+//List<string> listaDasBandas = new List<string>(); //criamos uma lista vazia 
+Dictionary<string, List<int>> bandasRegistradas = new Dictionary<string, List<int>>();
+
+bandasRegistradas.Add("Linkin Park", new List<int> { 10, 8, 6});
+bandasRegistradas.Add("The Beatles", new List<int>());
+
+
 void ExibirLogo()
 {
     Console.WriteLine(@"
@@ -59,7 +65,7 @@ void RegistrarBanda()
     ExibirTituloDaOpcao("Registro das bandas");
     Console.Write("Digite o nome da banda que deseja registrar: ");
     string nomeDaBanda = Console.ReadLine()!; //Sinal de ! no final para mostrar que não queremos trabalhar com valor nulo.
-    listaDasBandas.Add(nomeDaBanda);
+    bandasRegistradas.Add(nomeDaBanda, new List<int>());
     Console.WriteLine($"A banda {nomeDaBanda} foi registrada com sucesso"); // o simbulo de $ no começo da frase junto das chaves {} se chama interpolação de string
     Thread.Sleep(2000); // essa função serve para esperar, no caso ele vai esperar 2 milissegundos
     Console.Clear();
@@ -68,11 +74,11 @@ void RegistrarBanda()
 
 void MostrarBandasRegistradas()
 {
-    ExibirTituloDaOpcao("Exibindo todas as bandas registradas"); // o simbulo de \n serve para pular uma linha
+    ExibirTituloDaOpcao("Exibindo todas as bandas registradas."); // o simbulo de \n serve para pular uma linha
     /*for (int i = 0; i < listaDasBandas.Count; i++)
         Console.WriteLine($"Banda: {listaDasBandas[i]}");*/
 
-    foreach (string banda in listaDasBandas)
+    foreach (string banda in bandasRegistradas.Keys)
     {
         Console.WriteLine($"Banda: {banda}");
     }
